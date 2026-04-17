@@ -17,7 +17,7 @@ module alu_control (
             2'b10: begin
                 case (funct3)
                     // R-type: funct7 distinguishes add/sub and enables mul (M-ext)
-                    // I-type: funct7 is part of the immediate, so do NOT treat it as sub.
+                    // I-type: funct7 is part of the immediate
                     3'b000: begin
                         if (is_rtype && (funct7 == 7'b0000001)) alu_sel = ALU_MUL;      // mul
                         else if (is_rtype && (funct7 == 7'b0100000)) alu_sel = ALU_SUB; // sub
