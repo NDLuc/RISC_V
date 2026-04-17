@@ -278,7 +278,6 @@ module pipeline_basic_top (
     assign wdata = (WBSel_wb == 2'b00) ? ALUOut_wb :
                    (WBSel_wb == 2'b01) ? LoadData_wb : PC4_wb;
     assign RegWEn = RegWEn_wb;
-    // rd_wb already drives regfile write address
 
 endmodule
 
