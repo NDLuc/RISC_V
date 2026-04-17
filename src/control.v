@@ -56,7 +56,6 @@ module control (
                 reg_wen = 1'b1; a_sel = 2'b10; b_sel = 1'b1; wb_sel = 2'b00; imm_sel = 3'b011;
             end
             7'b1110011: begin // SYSTEM (ecall/ebreak)
-                // Minimal support: halt the core so simulation/wave is deterministic.
                 // ebreak: imm12=0, ecall: imm12=1 (per spec)
                 if ((imm12 == 12'h000) || (imm12 == 12'h001))
                     halt = 1'b1;
