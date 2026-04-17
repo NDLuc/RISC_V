@@ -6,7 +6,7 @@ module tb_pipeline_basic;
         .rst(rst)
     );
 
-    // Clock 100MHz (10ns period)
+    // Clock 100MHz 
     always #5 clk = ~clk;
 
     initial begin
@@ -35,7 +35,6 @@ module tb_pipeline_basic;
         $monitor("t=%0t PC=0x%h instr_if=0x%h", $time, uut.PC, uut.inst_if);
     end
 
-    // Trace WB writes (commit log)
     always @(posedge clk) begin
         if (!rst && uut.RegWEn) begin
             $display("WB: x%0d <= 0x%h (%0d)", uut.rd_wb, uut.wdata, uut.wdata);
